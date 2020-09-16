@@ -100,7 +100,7 @@ const paddle = new ex.Actor(150, game.drawHeight - 40, 200, 20)
 paddle.color = ex.Color.Chartreuse
 
 // Make sure the paddle can partipate in collisions, by default excalibur actors do not collide
-paddle.collisionType = ex.CollisionType.Fixed
+paddle.body.collider.type = ex.CollisionType.Fixed
 
 // `game.add` is the same as calling
 // `game.currentScene.add`
@@ -137,7 +137,7 @@ ball.vel.setTo(100, 100)
 
 // Set the collision Type to passive
 // This means "tell me when I collide with an emitted event, but don't let excalibur do anything automatically"
-ball.collisionType = ex.CollisionType.Passive
+ball.body.collider.type = ex.CollisionType.Passive
 // Other possible collision types:
 // "ex.CollisionType.PreventCollision - this means do not participate in any collision notification at all"
 // "ex.CollisionType.Active - this means participate and let excalibur resolve the positions/velocities of actors after collision"
@@ -245,7 +245,7 @@ for (let j = 0; j < rows; j++) {
 
 bricks.forEach(function (brick) {
   // Make sure that bricks can participate in collisions
-  brick.collisionType = ex.CollisionType.Active
+  brick.body.collider.type = ex.CollisionType.Active
 
   // Add the brick to the current scene to be drawn
   game.add(brick)
